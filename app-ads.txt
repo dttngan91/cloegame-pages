@@ -1,6 +1,5 @@
 #cloe
 google.com, pub-5949942558791875, DIRECT, f08c47fec0942fa0
-google.com, pub-7188592076082444, DIRECT, f08c47fec0942fa0
 google.com, pub-5823571594926685, DIRECT, f08c47fec0942fa0
 applovin.com, 1eb8ceefafbbfb531f4b10498029524f, DIRECT
 ironsrc.com,130210,DIRECT,79929e88b2ba73bc
