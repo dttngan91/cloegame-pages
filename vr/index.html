@@ -1,243 +1,649 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
-<title>Cloegames</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-<!-- CSS Files -->
-<link href="stylesheet" href="nicepage.css" media="screen">
-<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
-<link href="../css/animate.css" rel="stylesheet" media="screen">
-<link href="../css/owl.theme.css" rel="stylesheet">
-<link href="../css/owl.carousel.css" rel="stylesheet">
-<link href="../css/styles1.css" rel="stylesheet" media="screen">   
-<link href="../css/styles2.css" rel="stylesheet" media="screen">      
-<link href="../css/styles.css" rel="stylesheet" media="screen">    
-<link rel="canonical" href="https://apps.apple.com/us/developer/ngan-do/id911536699?see-all=i-phonei-pad-apps" />
-<!-- Google Fonts --> 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
-<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <title>cloeXR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Nunito:wght@400;700&family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
 
-<!-- Font Awesome -->
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* Hero Section Styles */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_1.png') center/cover;
+            opacity: 1;
+        }
+
+        .background-image_page2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_2.png') center/cover;
+            opacity: 1;
+        }
+
+        .background-image_page3 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: url('Images/page_3.png') center/cover;
+            opacity: 1;
+        }
+
+        .background-image_page4 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_4.png') center/cover;
+            opacity: 1;
+        }
+
+        .background-image_page5 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_5.png') center/cover;
+            opacity: 1;
+        }
+
+        .background-image_page6 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_6.png') center/cover;
+            opacity: 1;
+        }
+        .background-image_page7 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('Images/page_7.png') center/cover;
+            opacity: 1;
+        }
+
+        .hero-content {
+            padding: 100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 100px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .tagline {
+            font-size: 24px;
+            margin: 10px 0 0 0;
+            font-weight: 400;
+        }
+
+        .social {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 20px;
+        }
+
+        /* Story Section Styles */
+        #story {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .vr-shape {
+            width: 100%;
+            height: 600px;
+            border-radius: 300px;
+            position: relative;
+            margin-top: -300px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+
+        .story-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .story-content h1 {
+            font-size: 64px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .story-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .reflection {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+            filter: blur(10px);
+            transform: scaleY(-1);
+        }
+
+        /* Aquarium Demo Section Styles */
+        #aquarium {
+            font-family: 'SF Pro Display', sans-serif;
+            z-index: 2;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .aquarium-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .aquarium-content {
+            padding-right: 40px;
+            z-index: 2;
+        }
+
+        .aquarium-content h1 {
+            font-size: 50px;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .device-image {
+            width: 80px;
+            margin: 0px 0;
+            z-index: 2;
+        }
+
+        .devices-container {
+            max-width: 300x;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .aquarium-content p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 2;
+        }
+
+        .explore-button {
+            display: inline-block;
+            background-color: #FF9500;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background-color: #FF8000;
+        }
+
+        .demo-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .demo{ background: #f0e0d4; }
+
+        .our-team{
+            text-align: center;
+            position: relative;
+            padding: 0%;
+        }
+        .our-team .pic{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid #7a4b94;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .our-team img{
+            width: 100%;
+            height: auto;
+        }
+        .our-team .social{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            transition: all 0.3s ease-out 0s;
+        }
+        .our-team .social li a{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background: #f28a31;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 5px;
+            transform: scale(0);
+            transition: all 0.2s ease 0s;
+        }
+        .our-team:hover .social li a{ transform: scale(1); }
+        .our-team:hover .social li a:hover{ background: #7a4b94; }
+        .our-team .team-content{
+            padding: 15px 15px 20px;
+            background: #7a4b94;
+            border-radius: 40px 10px;
+            margin-top: -20px;
+            color: #fff;
+        }
+        .our-team .title{
+            font-size: 30px;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        .our-team .post{
+            display: block;
+            font-size: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .our-team .description{
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            line-height: 30px;
+            min-height: 300px;
+        }
+
+        .our-team .description .paragraph{
+            padding: 5px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .our-team-title-container
+        {
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 990px){
+            .our-team{ margin-bottom: 30px; }
+        }
+        @media only screen and (max-width: 359px){
+            .our-team .pic{
+                width: 150px;
+                height: 150px;
+            }
+            .our-team .social{ top: 20px; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+    </style>
 </head>
-  
 <body data-spy="scroll" data-target="#navbar-scroll">
- 
- <div id="top"></div>
- <div class="fullscreen landing parallax banner" style="background-image:url('../images/vr-images/bg-green.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
-	
-	<div class="overlay">
-		<div class="container">
-			<div class="row">
-				<h1>
-					CloeGames XR Division
-				</h1>
+    <div class="scroll-container">
+        <section id="hero">
+            <div class="background-image"></div>
+            <div class="hero-content">
+                <h1 class="logo">cloeXR</h1>
+                <p class="tagline">Exploring cutting-edge VR and AR technologies</p>
+            </div>
+            <div class="social">@cloegames</div>
+            <div class="scroll-indicator" onclick="scrollToNextSection()">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
+        </section>
 
-			<div class="landing-text wow fadeInLeft">
-				<p>Since 2015, the XR division at CloeGames has been dedicated to exploring cutting-edge VR and AR technologies. The lab specializes in diverse projects, ranging from immersive games and realistic medical simulations to creative brand marketing events. By staying ahead of emerging trends and working on-demand, the division delivers innovative solutions tailored to client needs, showcasing expertise in both entertainment and practical applications of XR technologies.</p>
-				
-			</div>				  
-			<div class="landing-text wow fadeInLeft"><p></p><p></p><p></p><p></p><p></p></div>
-		</div> 
-	</div> 
-</div>
-<!-- NAVIGATION -->
-<div class="fullscreen landing parallax banner" style="background-image:url('../images/vr-images/bg-white.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
-	
-	<div class="overlay">
-		<div class="container">
-			
-			<div class="row">
-				<div class="col-md-6">
-						<h1 class="wow fadeInLeft">
-						Home Aquarium	
-						</h1>
-						<div class="landing-text wow fadeInLeft">
-							<img width="100" height="100" src="../images/vr-images/apple-vision-pro.png" alt="client">	
-						</div>
-					<div class="landing-text wow fadeInLeft">
-						<p>This mixed reality (MR) demo showcases a virtual fish tank aquarium designed as a decorative and relaxation feature for the Apple Vision Pro. The experience blends immersive visuals with interactive elements, creating a calming and aesthetically pleasing environment. Perfect for enhancing living spaces or work environments, this demo highlights the potential of MR in delivering innovative and tranquil applications for everyday use.</p>
-					</div>				  
+        <!-- PAGE 2-->
+        <section id="story">
+            <div class="background-image_page2"></div>
+            <div class="container">
+                <div class="vr-shape">
+                    <div class="story-content">
+                        <h1>Our Story</h1>
+                        <p>Since 2015, the XR division at CloeGames has been dedicated to exploring cutting-edge VR and AR technologies.</p>
+                        <p>The lab specializes in diverse projects, ranging from immersive games and realistic medical simulations to creative brand marketing events.</p>
+                        <p>By staying ahead of emerging trends and working on-demand, the division delivers innovative solutions tailored to client needs, showcasing expertise in both entertainment and practical applications of XR technologies.</p>
+                    </div>
+                </div>
+                <div class="reflection"></div>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNextSection()">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
+        </section>
 
-					<!-- header button -->
-					<div class="head-btn wow fadeInLeft">
-						<a href="https://www.youtube.com/watch?v=hDad9u-7A_c" class="btn-primary app-store">
-						<i class="fa fa-apple"></i> <span>Explore</span>
-						</a>
-					</div>
-				</div> 
-				
-				<!-- phone image -->
-				<div class="col-md-6">
-					
-				<img src="../images/vr-images/fish-tank.png" alt="phone" class="header-phone img-responsive wow fadeInRight">
-				</div>
-			</div>
-		</div> 
-	</div> 
-</div>
+         <!-- PAGE 3 - AQUARIUM -->
+        <section id="aquarium">
+            <div class="background-image_page3"></div>
+            <div class="aquarium-container">
+                <div class="aquarium-content">
+                    <h1>Home Aquarium</h1>
+                    <img src="Images/devices/vision_pro.png" alt="Apple Vision Pro headset device" class="device-image">
+                    <p>This mixed reality (MR) demo showcases a virtual fish tank aquarium designed as a decorative and relaxation feature for the Apple Vision Pro. The experience blends immersive visuals with interactive elements, creating a calming and aesthetically pleasing environment. Perfect for enhancing living spaces or work environments, this demo highlights the potential of MR in delivering innovative and tranquil applications for everyday use.</p>
+                    <a href="https://www.youtube.com/watch?v=hDad9u-7A_c" class="explore-button">Explore Video</a>
+                </div>
+                <div class="image-container">
+                    <img src="Images/demo/demo_1.png" alt="Mixed reality aquarium display" class="demo-image">
+                </div>
+            </div>
+        </section>
 
-<!-- NAVIGATION -->
-<div class="fullscreen landing parallax banner" style="background-image:url('../images/vr-images/bg-green.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
-	
-	<div class="overlay">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-				 
-						<h1 class="wow fadeInLeft">
-						Virtual Motorbike Fixing Simulator 
-						</h1>
-						<div class="landing-text wow fadeInLeft">
-							<img width="100" height="100" src="../images/vr-images/meta-quest.png" alt="client">	
-						</div>
-					<div class="landing-text wow fadeInLeft">
-						<p>This VR project, developed for a Japanese company over three months, leverages the Meta Quest platform to create an immersive training environment for mechanics. The simulation enables hands-on practice for repairing motorbikes, offering a safe and effective way to develop and refine technical skills. Emphasizing realism and precision, the project serves as an advanced tool for vocational training and skill enhancement.</p>
-					</div>				  
+         <!-- PAGE 4 - MOTORCYCLE -->
+        <section id="aquarium">
+            <div class="background-image_page4"></div>
+            <div class="aquarium-container">
+                <div class="aquarium-content">
+                    <h1>Virtual Motorbike Fixing Simulator</h1>
+                    <img src="Images/devices/quest.png" alt="Apple Vision Pro headset device" class="device-image">
+                    <p>This VR project, developed for a Japanese company over three months, leverages the Meta Quest platform to create an immersive training environment for mechanics. The simulation enables hands-on practice for repairing motorbikes, offering a safe and effective way to develop and refine technical skills. Emphasizing realism and precision, the project serves as an advanced tool for vocational training and skill enhancement.</p>
+                    <a href="https://www.youtube.com/watch?v=itPacIQ7Hp0&list=PLSkLKSu0UZB0Ipp_f_mxhdDGV7LyVYPNT" class="explore-button">Explore Video</a>
+                </div>
+                <div class="image-container">
+                    <img src="Images/demo/demo_2.png" alt="Mixed reality aquarium display" class="demo-image">
+                </div>
+            </div>
+        </section>
 
-					<!-- header button -->
-					<div class="head-btn wow fadeInLeft">
-						<a href="https://www.youtube.com/watch?v=itPacIQ7Hp0&list=PLSkLKSu0UZB0Ipp_f_mxhdDGV7LyVYPNT" class="btn-primary app-store">
-						<i class="fa fa-apple"></i> <span>Explore</span>
-						</a>
-					</div>
-	
-					 				
+         <!-- PAGE 5-->
+        <section id="aquarium">
+            <div class="background-image_page5"></div>
+            <div class="aquarium-container">
+                <div class="aquarium-content">
+                    <h1>Hip Replacement Surgery Simulation</h1>
+                    
+                    <div id="devices-container">
+                        <img src="Images//devices/cardboard.png" alt="Apple Vision Pro headset device" class="device-image">
+                        <img src="Images//devices/leap-motion.png" alt="Apple Vision Pro headset device" class="device-image">
+                    </div>
+                    
+                    <p>This innovative VR project offers a dual-platform experience for medical training in hip replacement surgery. Developed with versions for Google Cardboard VR and Leap Motion controls, it provides an immersive, hands-on learning tool for medical students and professionals. The Google Cardboard VR version offers accessibility and portability, while the Leap Motion control version enhances interactivity and precision, simulating the intricate hand movements required in surgery. This project is designed to improve surgical training by combining realism with cutting-edge technology.</p>
+                    <a href="https://www.youtube.com/watch?v=LWw3-74YN-8" class="explore-button">Explore Video</a>
+                </div>
+                <div class="image-container">
+                    <img src="Images/demo/demo_3.png" alt="Mixed reality aquarium display" class="demo-image">
+                </div>
+            </div>
+        </section>
 
-				</div> 
-				
-				<!-- phone image -->
-				<div class="col-md-6">
-				<img src="../images/vr-images/motorbike.png" alt="phone" class="header-phone img-responsive wow fadeInRight">
-				</div>
-			</div>
-		</div> 
-	</div> 
-</div>
+         <!-- PAGE 6-->
+        <section id="aquarium">
+            <div class="background-image_page6"></div>
+            <div class="aquarium-container">
+                <div class="aquarium-content">
+                    <h1>Virtual Pet Game</h1>
+                    
+                    <div id="devices-container">
+                        <img src="Images//devices/oculus-dk2.png" alt="Apple Vision Pro headset device" class="device-image">
+                        <img src="Images//devices/leap-motion.png" alt="Apple Vision Pro headset device" class="device-image">
+                    </div>
 
-<!-- NAVIGATION -->
-<div class="fullscreen landing parallax banner" style="background-image:url('../images/vr-images/bg-white.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
-	
-	<div class="overlay">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-				 
-					<h1 class="wow fadeInLeft">
-					Hip Replacement Surgery Simulation 
-					</h1>
-					<div class="landing-text wow fadeInLeft">
-						<img width="100" height="100" src="../images/vr-images/cardboard.png" alt="client">	
-						<img width="100" height="100" src="../images/vr-images/leap-motion.png" alt="client">	
-					</div>
-				<div class="landing-text wow fadeInLeft">
-					<p>This innovative VR project offers a dual-platform experience for medical training in hip replacement surgery. Developed with versions for Google Cardboard VR and Leap Motion controls, it provides an immersive, hands-on learning tool for medical students and professionals. The Google Cardboard VR version offers accessibility and portability, while the Leap Motion control version enhances interactivity and precision, simulating the intricate hand movements required in surgery. This project is designed to improve surgical training by combining realism with cutting-edge technology.</p>
-				</div>				  
+                    <p>This Explore, developed as part of an MRES research project at Bournemouth, UK (2015), showcased innovative VR pet game development using Oculus DK2. The focus was on comparing the performance and user experience of VR hand interactions via Kinect and Leap Motion controllers. By evaluating their capabilities in a VR environment, the project provided valuable insights into the state of VR interaction technology at the time, highlighting usability challenges and opportunities for immersive gaming experiences.</p>
+                    <a href="https://www.youtube.com/watch?v=yGeueWNixGU" class="explore-button">Explore Video</a>
+                </div>
+                <div class="image-container">
+                    <img src="Images/demo/demo_4.png" alt="Mixed reality aquarium display" class="demo-image">
+                </div>
+            </div>
+        </section>
+       
+        
+         <!-- PAGE 6-->
+         <section id="aquarium">
+            <div class="background-image_page7"></div>
+            <div class="our-team-title-container">
+                <h1 >OUR TEAMS</h1>
+            </div>
+                <div class="row">
+                    <div class="aquarium-container">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="Images/team/ngando.png" alt="">
+                            </div>
+                            <ul class="social">
+                                <li><a href="mailto:ngan.do@cloegames.com" class="fa fa-envelope"></a></li>
+                                <li><a href="https://www.linkedin.com/in/ng%C3%A2n-%C4%91%E1%BB%97-th%E1%BB%8B-tuy%E1%BA%BFt-9381a235/" class="fab fa-linkedin"></a></li>
+                            </ul>
+                            <div class="team-content">
+                                <h3 class="title">Ngan Do</h3>
+                                <span class="post">Co-Founder | XR/AR/VR Specialist | Game Developer</span>
+                            </div>
+                            <div class="description">
+                                <p class="paragraph">With over a decade of experience in the tech and gaming industries, I bring a unique blend of creativity, technical expertise, and leadership. </p>
+                                <p class="paragraph">Holding a Master's degree in Computer Game Technology with a focus on emerging technologies like XR immersive experiences, I specialize in creating user-friendly games and innovative XR solutions. </p>
+                                <p class="paragraph">My ambition is to develop applications that captivate millions, combining fun, educational content, and immersive experiences to inspire and engage users. </p>
+                            </div>
+                        </div>
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="Images/team/hienhuynh.png" alt="">
+                            </div>
+                            <ul class="social">
+                                <li><a href="mailto:hien.huynh@cloegames.com" class="fa fa-envelope"></a></li>
+                                <li><a href="https://www.linkedin.com/in/huynh-quoc-hien-727958116/" class="fab fa-linkedin"></a></li>
+                            </ul>
+                            <div class="team-content">
+                                <h3 class="title">Hien Huynh</h3>
+                                <span class="post">Co-Founder | Unity Engineer | Business Administrator</span>
+                            </div>
+                            <div class="description">
+                                <p class="paragraph">With over nine years of experience in game industry, I am passionate about leveraging technology to build products that help people and solve social problems. </p>
+                                <p class="paragraph">Inspired by the possibilities of VR, XR, and innovations like Apple Vision Pro, and a lot of other solution, my goal is to create experiences that bring people together, promote family fun, and ensure kids can learn and play in safe, enjoyable ways.</p>
+                                <p class="paragraph">  </p>
+                                <p class="paragraph">  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
 
-				<!-- header button -->
-				<div class="head-btn wow fadeInLeft">
-					<a href="https://www.youtube.com/watch?v=LWw3-74YN-8" class="btn-primary app-store">
-					<i class="fa fa-apple"></i> <span>Explore</span>
-					</a>
-				</div>
+    </div>
 
-								 
 
-			</div> 
-			
-			<!-- phone image -->
-			<div class="col-md-6">
-			<img src="../images/vr-images/hip.png" alt="phone" class="header-phone img-responsive wow fadeInRight">
-			</div>
-			</div>
-		</div> 
-	</div> 
-</div>
 
-<div class="fullscreen landing parallax banner" style="background-image:url('../images/vr-images/bg-green.jpg');" data-img-width="2000" data-img-height="1325" data-diff="100">
-	
-	<div class="overlay">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-				 
-					<h1 class="wow fadeInLeft">
-					Virtual Pet Game
-					</h1>
-					<div class="landing-text wow fadeInLeft">
-						<img width="100" height="100" src="../images/vr-images/oculus-dk2.png" alt="client">	
-						<img width="100" height="100" src="../images/vr-images/leap-motion.png" alt="client">	
-					</div>
-				<div class="landing-text wow fadeInLeft">
-					<p>This Explore, developed as part of an MRES research project at Bournemouth, UK (2015), showcased innovative VR pet game development using Oculus DK2. The focus was on comparing the performance and user experience of VR hand interactions via Kinect and Leap Motion controllers. By evaluating their capabilities in a VR environment, the project provided valuable insights into the state of VR interaction technology at the time, highlighting usability challenges and opportunities for immersive gaming experiences.</p>
-				</div>				  
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        let isScrolling = false;
+        let startY = 0;
+        const threshold = 50;
 
-				<!-- header button -->
-				<div class="head-btn wow fadeInLeft">
-					<a href="https://www.youtube.com/watch?v=yGeueWNixGU" class="btn-primary app-store">
-					<i class="fa fa-apple"></i> <span>Explore</span>
-					</a>
-				</div>
+        function scrollToNextSection() {
+            const currentScroll = scrollContainer.scrollTop;
+            const windowHeight = window.innerHeight;
+            const nextSection = Math.ceil((currentScroll + threshold) / windowHeight) * windowHeight;
+            
+            scrollContainer.scrollTo({
+                top: nextSection,
+                behavior: 'smooth'
+            });
+        }
 
-								 
+        function scrollToPrevSection() {
+            const currentScroll = scrollContainer.scrollTop;
+            const windowHeight = window.innerHeight;
+            const prevSection = Math.floor((currentScroll - threshold) / windowHeight) * windowHeight;
+            
+            scrollContainer.scrollTo({
+                top: prevSection,
+                behavior: 'smooth'
+            });
+        }
 
-			</div> 
-			
-			<!-- phone image -->
-			<div class="col-md-6">
-			<img src="../images/vr-images/pet.png" alt="phone" class="header-phone img-responsive wow fadeInRight">
-			</div>
-			</div>
-		</div> 
-	</div> 
-</div>
+        scrollContainer.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            isScrolling = false;
+        });
 
-<!-- footer -->
-<footer id="footer">
-	<div class="container">
-		<div class="social text-center">
-			<a  href="../team/index.html">
-				<h2>Meet Our Team</h2>
-				</a>
-		</div>
-		<div class="col-sm-4 col-sm-offset-4">
-			<!-- social links -->
-				<div class="social text-center">
-					<ul>
-						<li><a class="wow fadeInUp" href="mailto:publish.cloegames@gmail.com">
-							<i class="fa fa-envelope"></i></a></li>
-					</ul>
-					<h5>
-						publish.cloegames@gmail.com
-					</h5>
-					
-				</div>	
-			<div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright CloeGames 2020</div>
-			<a href="#" class="scrollToTop"><i class="fa fa-arrow-circle-o-up"></i></a>
-		</div>	
-	</div>	
-</footer>
-	
-	<!-- javascript files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/custom.js"></script>
-    <script src="../js/jquery.sticky.js"></script>
-	<script src="../js/wow.min.js"></script>
-	<script src="../js/owl.carousel.min.js"></script>
-	<script src="../js/ekko-lightbox-min.js"></script>
-	<script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-<script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-	<script type="text/javascript">
-	$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox(); }); 
-	</script>
-	<script>
-		new WOW().init();
-	</script>
-  </body>
+        scrollContainer.addEventListener('touchmove', (e) => {
+            if (isScrolling) return;
+            
+            const currentY = e.touches[0].clientY;
+            const diff = startY - currentY;
+
+            if (Math.abs(diff) > threshold) {
+                isScrolling = true;
+                if (diff > 0) {
+                    scrollToNextSection();
+                } else {
+                    scrollToPrevSection();
+                }
+            }
+        });
+
+        scrollContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (isScrolling) return;
+            
+            isScrolling = true;
+            if (e.deltaY > 0) {
+                scrollToNextSection();
+            } else {
+                scrollToPrevSection();
+            }
+            
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }, { passive: false });
+    </script>
+</body>
 </html>
